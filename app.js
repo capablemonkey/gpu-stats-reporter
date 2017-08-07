@@ -120,7 +120,7 @@ exec('nvidia-smi',(err) =>{
         throw new Error('nVidia SMI is not available, verify that it is part of your PATH environment variable');
     } else {
         logger.info('nVidia SMI found, beginning loop and reporting');
-        setInterval(queryGpus,5000);
+        setInterval(queryGpus, 30000);
         queryGpus();
     }
 });
