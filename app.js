@@ -106,7 +106,7 @@ function parseData(data,next){
 }
 
 function queryGpus(){
-    exec(query,(err,result) =>{
+    exec(query, {timeout: 15000, killSignal: 9},(err,result) =>{
         if(err){
             logger.error({err}, 'Failed to get stats from GPUs');
         } else {
