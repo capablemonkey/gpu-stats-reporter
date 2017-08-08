@@ -106,7 +106,7 @@ function parseData(data,next){
 }
 
 function checkExistingQueries(){
-    exec('ps -A | wc -l', (err, result) =>{
+    exec('ps -A | grep nvidia-smi | wc -l', (err, result) =>{
         if(parseInt(result) > 10){
             throw new Error('nvidia-smi is stuck. There are too many nvidia-smi processes. Stopping to prevent further spam.');
         }
